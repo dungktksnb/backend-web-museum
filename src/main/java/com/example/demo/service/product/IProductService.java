@@ -1,4 +1,8 @@
 package com.example.demo.service.product;
 
-public interface IProductService {
+import com.example.demo.model.Product;
+import com.example.demo.service.IGeneral;
+
+public interface IProductService extends IGeneral<Product> {
+
 }

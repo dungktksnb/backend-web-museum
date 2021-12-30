@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 
-public interface ProductLanguageRepository extends JpaRepository<ProductLanguage,Long> {
+public interface IProductLanguageRepository extends JpaRepository<ProductLanguage,Long> {
 }

@@ -1,4 +1,4 @@
 package com.example.demo.service.productLanguage;
 
-public interface IProductLanguageService {
+public interface IProductLanguageService extends Iterable{
 }
