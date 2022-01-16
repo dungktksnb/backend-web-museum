@@ -4,7 +4,7 @@ import com.example.demo.model.City;
 import com.example.demo.service.IGeneral;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface ICityService extends IGeneral<City> {
 
 }

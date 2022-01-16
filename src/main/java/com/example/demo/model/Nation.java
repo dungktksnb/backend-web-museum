@@ -12,7 +12,6 @@ public class Nation {
     private String name;
     @ManyToOne
     private City city;
-
     public Nation() {
     }
 

@@ -9,16 +9,32 @@ public class ProductLanguage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String name;
+    private String content ;
+    private String dating;
+    private String substance;
+    private String location;
+    @ManyToOne
+    private Product product;
+    @ManyToOne
+    private  Language language;
+
+
 
     public ProductLanguage() {
     }
 
-    public ProductLanguage(Long id, String name) {
+    public ProductLanguage(Long id, String name, String content, String dating, String substance, String location, Product product, Language language) {
         this.id = id;
         this.name = name;
+        this.content = content;
+        this.dating = dating;
+        this.substance = substance;
+        this.location = location;
+        this.product = product;
+        this.language = language;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -32,5 +48,53 @@ public class ProductLanguage {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getDating() {
+        return dating;
+    }
+
+    public void setDating(String dating) {
+        this.dating = dating;
+    }
+
+    public String getSubstance() {
+        return substance;
+    }
+
+    public void setSubstance(String substance) {
+        this.substance = substance;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 }

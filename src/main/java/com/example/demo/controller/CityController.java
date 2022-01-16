@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -21,6 +22,7 @@ public class CityController {
     @GetMapping
     public ResponseEntity<Iterable<City>> getCity(){
         List<City> cities= (List<City>) iCityService.findAll();
+
         if(cities.isEmpty()){
             return new  ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

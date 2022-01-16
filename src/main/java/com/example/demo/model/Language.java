@@ -8,16 +8,14 @@ public class Language {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String name;
-    @ManyToOne
-    private ProductLanguage productLanguage;
+
 
     public Language() {
     }
 
-    public Language(Long id, String name, ProductLanguage productLanguage) {
+    public Language(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.productLanguage = productLanguage;
     }
 
     public Long getId() {
@@ -34,13 +32,5 @@ public class Language {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public ProductLanguage getProductLanguage() {
-        return productLanguage;
-    }
-
-    public void setProductLanguage(ProductLanguage productLanguage) {
-        this.productLanguage = productLanguage;
     }
 }
