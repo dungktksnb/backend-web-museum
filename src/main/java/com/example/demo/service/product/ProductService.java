@@ -29,4 +29,10 @@ public class ProductService implements IProductService{
     public void remove(long id) {
         iProductRepository.deleteById(id);
     }
+
+
+    @Override
+    public Iterable<Product> findAlll() {
+        return iProductRepository.findAlll();
+    }
 }

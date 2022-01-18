@@ -7,12 +7,12 @@ import javax.persistence.*;
 public class ProductLanguage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
-    private String name;
-    private String content ;
-    private String dating;
-    private String substance;
-    private String location;
+    private  Long id;//id
+    private String name;//tên
+    private String content ;// nội dung
+    private String dating;//niên đại
+    private String substance;//chất liệu
+    private String location;//địa điểm phát hiện
     @ManyToOne
     private Product product;
     @ManyToOne

@@ -16,9 +16,9 @@ import java.util.Optional;
 public class ProductController {
     @Autowired
     private IProductService iProductService;
-    @GetMapping
-    public ResponseEntity<Iterable<Product>> findAll(){
-        List<Product> products = (List<Product>) iProductService.findAll();
+    @GetMapping()
+    public ResponseEntity<Iterable<Product>> getFindAll(){
+        List<Product> products = (List<Product>) iProductService.findAlll();
       if(products.isEmpty()){
           return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       }

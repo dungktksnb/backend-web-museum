@@ -5,9 +5,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    private String img;
-    private String experience3d;
-
+    private String img;//ảnh sản phẩm
+    private String experience3d;//trải nghiệm 3d
 
     public Product() {
     }
