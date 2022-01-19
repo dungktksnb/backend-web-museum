@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
 @Service
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     @Autowired
     private IProductRepository iProductRepository;
+
     @Override
     public Iterable<Product> findAll() {
         return iProductRepository.findAll();
@@ -31,8 +33,5 @@ public class ProductService implements IProductService{
     }
 
 
-    @Override
-    public Iterable<Product> findAlll() {
-        return iProductRepository.findAlll();
-    }
 }
+

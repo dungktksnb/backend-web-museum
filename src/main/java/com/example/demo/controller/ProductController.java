@@ -18,18 +18,16 @@ public class ProductController {
     private IProductService iProductService;
     @GetMapping()
     public ResponseEntity<Iterable<Product>> getFindAll(){
-        List<Product> products = (List<Product>) iProductService.findAlll();
+        List<Product> products = (List<Product>) iProductService.findAll();
       if(products.isEmpty()){
           return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       }
       return new ResponseEntity<>(products,HttpStatus.OK);
-
     }
     @PostMapping
     public  ResponseEntity<Product>saveProduct(@RequestBody Product product){
         return new ResponseEntity<>(iProductService.save(product),HttpStatus.CREATED);
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Product>deleteProduct(@PathVariable long id){
         Optional<Product>optionalProduct=iProductService.findById(id);
