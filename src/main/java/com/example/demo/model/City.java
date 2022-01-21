@@ -11,7 +11,6 @@ public class City {
     private  Museum museum;
     public City() {
     }
-
     public City(Long id, String name, Museum museum) {
         this.id = id;
         this.name = name;

@@ -1,6 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Product;
+import com.example.demo.model.ProductAll;
+import com.example.demo.repository.IProductAllRepository;
+import com.example.demo.service.ProductAll.IProductAllService;
+import com.example.demo.service.ProductAll.ProductAllService;
 import com.example.demo.service.product.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +20,10 @@ import java.util.Optional;
 public class ProductController {
     @Autowired
     private IProductService iProductService;
+    private IProductAllService iProductAllService;
     @GetMapping()
-    public ResponseEntity<Iterable<Product>> getFindAll(){
-        List<Product> products = (List<Product>) iProductService.findAll();
+    public ResponseEntity<Iterable<ProductAll>> getProductFindAll(){
+    List<ProductAll> products= (List<ProductAll>)iProductAllService.findAllByNameLanguage();
       if(products.isEmpty()){
           return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       }

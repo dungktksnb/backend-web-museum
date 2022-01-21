@@ -1,10 +1,12 @@
 package com.example.demo.service.language;
 
 import com.example.demo.model.Language;
+
 import com.example.demo.repository.ILanguageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+;
 import java.util.Optional;
 @Service
 
@@ -30,6 +32,5 @@ public class LanguageService implements ILanguageService {
     @Override
     public void remove(long id) {
         iLanguageRepository.deleteById(id);
-
     }
 }

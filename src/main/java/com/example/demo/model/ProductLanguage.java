@@ -2,8 +2,9 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 
-@Entity
+//không cần i18n vẫn xử lý được đoạn ngôn ngữ.
 
+@Entity
 public class ProductLanguage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

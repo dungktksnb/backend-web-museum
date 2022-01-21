@@ -24,10 +24,8 @@ public class ImageService implements IImageService {
     public Image save(Image image) {
         return imageRepository.save(image);
     }
-
     @Override
     public void remove(long id) {
         imageRepository.deleteById(id);
-
     }
 }
