@@ -32,7 +32,5 @@ public class CityController {
     public  ResponseEntity<City> createCity(@RequestBody City city){
         City city1= iCityService.save(city);
         return new ResponseEntity<>(city1,HttpStatus.CREATED);
-
     }
-
 }

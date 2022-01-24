@@ -1,29 +1,36 @@
 package com.example.demo.repository;
 
+import com.example.demo.interfce.GetProduct;
 import com.example.demo.model.Product;
-import com.example.demo.model.ProductAll;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface IProductRepository extends JpaRepository<Product,Long> {
-//    @Query(nativeQuery = true,value = "select product.id          as \"idProduct\",\n" +
-//            "       experience3d,\n" +
-//            "       img,\n" +
-//            "       product_language.id as \"idProductLanguage\",\n" +
-//            "       content,\n" +
-//            "       dating,\n" +
-//            "       location,\n" +
-//            "       name,\n" +
-//            "       substance,\n" +
-//            "       language_id,\n" +
-//            "       product_id,language.id as \"idLanguage\", name_language as \"nameLanguage\"\n" +
-//            "from (product_language inner join product on product_language.product_id = product.id)\n" +
-//            "         inner join language\n" +
-//            "where product_language.language_id = language.id\n" +
-//            "  and language.name_language = 'tiếng việt';")
-//    Iterable<ProductAll>findAllByNameLanguage();
+    @Query(nativeQuery = true,value = "select img          as imgProduct,\n" +
+            "       experience3d as experience3dProduct,\n" +
+            "       name         as nameProduct,\n" +
+            "       content      as contenProdcut,\n" +
+            "       dating       as datingProduct,\n" +
+            "       substance    as substanceProduct,\n" +
+            "       location     as locationProduct,\n" +
+            "       sound        as soundProduct\n" +
+            "from product_language\n" +
+            "         join product p on product_language.product_id = p.id\n" +
+            "         join language l on l.id = product_language.language_id where name_language ='tiếng việt' and name='kala'")
+    GetProduct getProductByName ();
+    @Query(nativeQuery = true,value = "select img          as imgProduct,\n" +
+            "       experience3d as experience3dProduct,\n" +
+            "       name         as nameProduct,\n" +
+            "       content      as contenProdcut,\n" +
+            "       dating       as datingProduct,\n" +
+            "       substance    as substanceProduct,\n" +
+            "       location     as locationProduct,\n" +
+            "       sound        as soundProduct\n" +
+            "from product_language\n" +
+            "         join product p on product_language.product_id = p.id\n" +
+            "         join language l on l.id = product_language.language_id where name_language ='tiếng việt' ")
+    GetProduct getProductBy();
+
 }

@@ -1,7 +1,9 @@
 package com.example.demo.model;
+import lombok.Data;
+
 import javax.persistence.*;
 @Entity
-
+@Data
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -9,12 +11,4 @@ public class City {
     private String name;
     @ManyToOne
     private  Museum museum;
-    public City() {
-    }
-    public City(Long id, String name, Museum museum) {
-        this.id = id;
-        this.name = name;
-        this.museum = museum;
-    }
-
 }
