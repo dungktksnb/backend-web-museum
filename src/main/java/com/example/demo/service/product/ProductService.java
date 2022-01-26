@@ -6,6 +6,7 @@ import com.example.demo.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,10 +34,25 @@ public class ProductService implements IProductService {
         iProductRepository.deleteById(id);
     }
 
+
     @Override
-    public GetProduct getProductByName() {
-        return iProductRepository.getProductByName();
+    public GetProduct getByNameKaLa() {
+        return iProductRepository.getByNameKaLaVi();
     }
 
+    @Override
+    public GetProduct getByNameNaga() {
+        return iProductRepository.getByNameNagaVi();
+    }
+
+    @Override
+    public GetProduct getByNameNagaChamp() {
+        return iProductRepository.getByNameNagaChamp();
+    }
+
+    @Override
+    public List<Product> findAllById(long id) {
+        return (List<Product>) iProductRepository.findAllById(id);
+    }
 }
 

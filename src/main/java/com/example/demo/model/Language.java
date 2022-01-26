@@ -12,5 +12,4 @@ public class Language {
     private  Long id;
     @Column(name = "name_language")
     private String name;
-
 }

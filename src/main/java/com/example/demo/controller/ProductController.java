@@ -17,17 +17,10 @@ import java.util.Optional;
 public class ProductController {
     @Autowired
     private IProductService iProductService;
-
-    @GetMapping
-    public ResponseEntity<GetProduct> getProduct() {
-        return new ResponseEntity<>(iProductService.getProductByName(), HttpStatus.OK);
-    }
-
     @PostMapping
     public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
         return new ResponseEntity<>(iProductService.save(product), HttpStatus.CREATED);
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
         Optional<Product> optionalProduct = iProductService.findById(id);
@@ -36,5 +29,21 @@ public class ProductController {
         }
         iProductService.remove(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("/kala-vi")
+    public ResponseEntity<GetProduct> getByNameKaLa(){
+        return new ResponseEntity<>(iProductService.getByNameKaLa(),HttpStatus.OK);
+    }
+    @GetMapping("/naga-vi")
+    public  ResponseEntity<GetProduct>getByNameNaGa(){
+        return new ResponseEntity<>(iProductService.getByNameNaga(),HttpStatus.OK);
+    }
+    @GetMapping("/naga-champ")
+    public ResponseEntity<GetProduct> getByNameNagaChamp(){
+        return new ResponseEntity<>(iProductService.getByNameNagaChamp(),HttpStatus.OK);
+    }
+    @GetMapping("/{id}")
+    public  ResponseEntity<List<Product>>findById(@PathVariable long id){
+        return new ResponseEntity(iProductService.findById(id),HttpStatus.OK);
     }
 }

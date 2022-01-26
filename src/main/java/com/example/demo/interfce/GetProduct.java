@@ -1,6 +1,7 @@
 package com.example.demo.interfce;
 
 public interface GetProduct {
+    String getIdProduct();
     String getImgProduct();
     String getExperience3dProduct();
     String getNameProduct();
