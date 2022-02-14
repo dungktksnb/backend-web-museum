@@ -1,15 +1,36 @@
 package com.example.demo.model;
 
-import lombok.Data;
+
 
 import javax.persistence.*;
 @Entity
-@Data
+
 public class Nation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
-    private City city;
+    public Nation() {
+    }
+
+    public Nation(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

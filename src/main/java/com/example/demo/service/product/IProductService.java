@@ -8,7 +8,6 @@ import com.example.demo.service.IGeneral;
 public interface IProductService extends IGeneral<Product> {
     Iterable<GetProduct> getProductByNameLanguageVi();
     Iterable<GetProduct> getProductByNameLanguageChamp();
-
     GetProduct getByNameNagaChamp();
 
 }

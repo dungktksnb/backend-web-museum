@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/museum")
@@ -20,5 +21,10 @@ public class MuseumController {
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(list,HttpStatus.OK);
+    }
+    @GetMapping ("/{id}")
+    public  ResponseEntity<Optional<Museum>>findById(@PathVariable long id){
+        Optional<Museum> museum=museumService.findById(id);
+        return new ResponseEntity<>(museum,HttpStatus.OK);
     }
 }
