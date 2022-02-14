@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/museum")
+@RequestMapping("/api/city")
 @CrossOrigin("*")
 public class CityController {
     @Autowired

@@ -1,9 +1,7 @@
 package com.example.demo.model;
 
 import lombok.Data;
-
 import javax.persistence.*;
-
 
 @Entity
 @Data
@@ -14,10 +12,5 @@ public class Museum {
     private Long id;
     private  String name;
     @ManyToOne
-    private Product product;
-    @ManyToOne
-    private  Video video;
-    @ManyToOne
-    private Image image;
-
+    private City city;
 }

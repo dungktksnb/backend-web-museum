@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.interfce.GetProduct;
 import com.example.demo.model.Product;
-import com.example.demo.service.product.IProductService;
+import com.example.demo.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,34 +16,42 @@ import java.util.Optional;
 @CrossOrigin("*")
 public class ProductController {
     @Autowired
-    private IProductService iProductService;
+    private ProductService productService;
     @PostMapping
     public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
-        return new ResponseEntity<>(iProductService.save(product), HttpStatus.CREATED);
+        return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
-        Optional<Product> optionalProduct = iProductService.findById(id);
+        Optional<Product> optionalProduct = productService.findById(id);
         if (!optionalProduct.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        iProductService.remove(id);
+        productService.remove(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @GetMapping("/kala-vi")
-    public ResponseEntity<GetProduct> getByNameKaLa(){
-        return new ResponseEntity<>(iProductService.getByNameKaLa(),HttpStatus.OK);
+    @GetMapping("/vi")
+    public ResponseEntity<Iterable<GetProduct>> getByNameKaLa(){
+       List<GetProduct>list= (List<GetProduct>) productService.getProductByNameLanguageVi();
+       if(list.isEmpty()){
+           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+       }return new ResponseEntity<>(list,HttpStatus.OK);
     }
-    @GetMapping("/naga-vi")
-    public  ResponseEntity<GetProduct>getByNameNaGa(){
-        return new ResponseEntity<>(iProductService.getByNameNaga(),HttpStatus.OK);
-    }
+
+
     @GetMapping("/naga-champ")
     public ResponseEntity<GetProduct> getByNameNagaChamp(){
-        return new ResponseEntity<>(iProductService.getByNameNagaChamp(),HttpStatus.OK);
+        return new ResponseEntity<>(productService.getByNameNagaChamp(),HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public  ResponseEntity<List<Product>>findById(@PathVariable long id){
-        return new ResponseEntity(iProductService.findById(id),HttpStatus.OK);
+    public ResponseEntity findById(@PathVariable long id){
+        return new ResponseEntity(productService.findById(id).orElseThrow(()->new RuntimeException(("cannot find product with id" +id))),HttpStatus.NOT_FOUND);
+    }
+    @GetMapping("/champ")
+    public ResponseEntity<Iterable<GetProduct>>getProductByNameLanguageChapm(){
+        List<GetProduct>list= (List<GetProduct>) productService.getProductByNameLanguageChamp();
+        if (list.isEmpty()){
+            return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }return new ResponseEntity<>(list,HttpStatus.OK);
     }
 }

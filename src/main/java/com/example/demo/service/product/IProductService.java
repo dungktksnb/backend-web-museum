@@ -5,14 +5,10 @@ import com.example.demo.interfce.GetProduct;
 import com.example.demo.model.Product;
 import com.example.demo.service.IGeneral;
 
-import java.util.List;
-
 public interface IProductService extends IGeneral<Product> {
-    GetProduct getByNameKaLa();
-    GetProduct getByNameNaga();
+    Iterable<GetProduct> getProductByNameLanguageVi();
+    Iterable<GetProduct> getProductByNameLanguageChamp();
+
     GetProduct getByNameNagaChamp();
-    List<Product>findAllById(long id);
-
-
 
 }

@@ -1,4 +1,5 @@
 package com.example.demo.service.video;
-
-public interface IVideoService {
+import com.example.demo.model.Video;
+import com.example.demo.service.IGeneral;
+public interface IVideoService extends IGeneral<Video> {
 }

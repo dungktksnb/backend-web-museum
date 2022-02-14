@@ -1,6 +1,8 @@
 package com.example.demo.interfce;
 
 public interface GetProduct {
+    String getIdProductLanguage();
+    String getIdLanguage();
     String getIdProduct();
     String getImgProduct();
     String getExperience3dProduct();
@@ -10,4 +12,5 @@ public interface GetProduct {
     String getSubstanceProduct();
     String getLocationProduct();
     String getSoundProduct();
+
 }

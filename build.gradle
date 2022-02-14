@@ -32,14 +32,9 @@ dependencies {
     implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
     implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.4.0'
 //    implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.4.2'
-//
 //    implementation group: 'org.springframework.security', name: 'spring-security-config', version: '5.4.2'
-//
 //    implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.4.2'
     compileOnly 'org.projectlombok:lombok'
-
-
-
 }
 
 test {

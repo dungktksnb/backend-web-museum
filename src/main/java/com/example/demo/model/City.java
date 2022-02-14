@@ -10,5 +10,6 @@ public class City {
     private Long id;
     private String name;
     @ManyToOne
-    private  Museum museum;
+    private Nation nation;
+
 }

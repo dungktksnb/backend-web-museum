@@ -17,7 +17,7 @@ public class ProductLanguage {
     private String dating;//niên đại
     private String substance;//chất liệu
     private String location;//địa điểm phát hiện
-    private  String sound;
+    private  String sound;//âm thanh
     @ManyToOne
     private Product product;
     @ManyToOne

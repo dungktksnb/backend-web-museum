@@ -36,23 +36,18 @@ public class ProductService implements IProductService {
 
 
     @Override
-    public GetProduct getByNameKaLa() {
-        return iProductRepository.getByNameKaLaVi();
+    public Iterable<GetProduct> getProductByNameLanguageVi() {
+        return iProductRepository.getProductByNameLanguageVi();
     }
 
     @Override
-    public GetProduct getByNameNaga() {
-        return iProductRepository.getByNameNagaVi();
+    public Iterable<GetProduct> getProductByNameLanguageChamp() {
+        return iProductRepository.getProductByNameLanguageChamp();
     }
 
     @Override
     public GetProduct getByNameNagaChamp() {
-        return iProductRepository.getByNameNagaChamp();
-    }
-
-    @Override
-    public List<Product> findAllById(long id) {
-        return (List<Product>) iProductRepository.findAllById(id);
+        return null;
     }
 }
 

@@ -13,4 +13,6 @@ public class Video {
     private Long id;
     private String name;
     private  String link;
+    @ManyToOne
+    private Museum museum;
 }

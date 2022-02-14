@@ -10,6 +10,6 @@ public class Product {
     private Long Id;
     private String img;//ảnh sản phẩm
     private String experience3d;//trải nghiệm 3d
-
-
+    @ManyToOne
+    private Museum museum;
 }

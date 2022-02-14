@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
 @Service
-public class MuseumService implements  IMuseumService {
+public class MuseumService implements IMuseumService {
     @Autowired
     private IMuseumRepository iMuseumRepository;
+
     @Override
     public Iterable<Museum> findAll() {
-        return iMuseumRepository.findAll();
+        return  iMuseumRepository.findAll();
     }
-
     @Override
     public Optional<Museum> findById(Long id) {
         return iMuseumRepository.findById(id);
@@ -28,6 +29,5 @@ public class MuseumService implements  IMuseumService {
     @Override
     public void remove(long id) {
         iMuseumRepository.deleteById(id);
-
     }
 }
