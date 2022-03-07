@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 ;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/city")
@@ -30,4 +31,15 @@ public class CityController {
         City city1= iCityService.save(city);
         return new ResponseEntity<>(city1,HttpStatus.CREATED);
     }
+    @DeleteMapping("/{id}")
+    public  ResponseEntity<City>deleteCity(@PathVariable long id){
+        Optional<City>optionalCity=iCityService.findById(id);
+        if(!optionalCity.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        iCityService.remove(id);
+        return new ResponseEntity<>(optionalCity.get(),HttpStatus.OK);
+    }
+
+
 }

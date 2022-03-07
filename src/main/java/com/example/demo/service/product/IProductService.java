@@ -9,5 +9,6 @@ public interface IProductService extends IGeneral<Product> {
     Iterable<GetProduct> getProductByNameLanguageVi();
     Iterable<GetProduct> getProductByNameLanguageChamp();
     GetProduct getByNameNagaChamp();
+    Iterable<GetProduct> getProduct();
 
 }

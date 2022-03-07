@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.response.Response;
+import com.example.demo.dto.response.ResponseBody;
 import com.example.demo.interfce.GetProduct;
 import com.example.demo.model.Product;
 import com.example.demo.service.product.ProductService;
@@ -8,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.CharBuffer;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,13 +49,21 @@ public class ProductController {
     }
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable long id){
-        return new ResponseEntity(productService.findById(id).orElseThrow(()->new RuntimeException(("cannot find product with id" +id))),HttpStatus.NOT_FOUND);
+        return new ResponseEntity(new ResponseBody(Response.OBJECT_INVALID,null),HttpStatus.BAD_REQUEST);
     }
     @GetMapping("/champ")
-    public ResponseEntity<Iterable<GetProduct>>getProductByNameLanguageChapm(){
+    public ResponseEntity<Iterable<GetProduct>>getProductByNameLanguageChamp(){
         List<GetProduct>list= (List<GetProduct>) productService.getProductByNameLanguageChamp();
         if (list.isEmpty()){
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }return new ResponseEntity<>(list,HttpStatus.OK);
     }
+    @GetMapping("/getAllProducts")
+    public  ResponseEntity<Iterable<GetProduct>>getAll(){
+        List<GetProduct>list= (List<GetProduct>) productService.getProduct();
+        if (list.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }return new ResponseEntity<>(list,HttpStatus.OK);
+    }
+
 }

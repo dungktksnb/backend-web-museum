@@ -49,5 +49,10 @@ public class ProductService implements IProductService {
     public GetProduct getByNameNagaChamp() {
         return null;
     }
+
+    @Override
+    public Iterable<GetProduct> getProduct() {
+        return iProductRepository.getProduct();
+    }
 }
 
